@@ -1,0 +1,43 @@
+plugins { id 'com.android.application' }
+
+def signingFile = rootProject.file('signing.properties')
+def signingValues = new Properties()
+if (signingFile.exists()) signingFile.withInputStream { signingValues.load(it) }
+
+android {
+    namespace 'io.careroute.app'
+    compileSdk 34
+    buildToolsVersion '36.0.0'
+    defaultConfig {
+        applicationId 'io.careroute.app'
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+    signingConfigs {
+        if (signingFile.exists()) {
+            contest {
+                storeFile rootProject.file(signingValues['storeFile'])
+                storePassword signingValues['storePassword']
+                keyAlias signingValues['keyAlias']
+                keyPassword signingValues['keyPassword']
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (signingFile.exists()) signingConfig signingConfigs.contest
+        }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    lint { abortOnError true; checkReleaseBuilds true }
+}
+
+dependencies {
+    implementation 'ai.pleos.playground:Vehicle:2.3.2'
+    compileOnly files(new File(android.sdkDirectory, 'platforms/android-34/optional/android.car.jar'))
+    testImplementation 'junit:junit:4.13.2'
+}

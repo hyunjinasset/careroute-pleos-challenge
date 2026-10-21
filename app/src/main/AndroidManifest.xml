@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
+    <application android:allowBackup="false" android:dataExtractionRules="@xml/data_extraction_rules" android:label="이어 CareRoute"
+        android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme"
+        android:supportsRtl="true" android:usesCleartextTraffic="false">
+        <uses-library android:name="android.car" android:required="false" />
+        <activity android:name=".MainActivity" android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize"
+            android:screenOrientation="sensorLandscape" android:resizeableActivity="true">
+            <meta-data android:name="distractionOptimized" android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
