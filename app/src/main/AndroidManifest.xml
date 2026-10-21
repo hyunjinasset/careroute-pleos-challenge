@@ -3,8 +3,8 @@
     <uses-permission android:name="pleos.car.permission.CAR_DOORS" />
     <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
     <uses-feature android:name="android.hardware.type.automotive" android:required="false" />
-    <application android:allowBackup="false" android:dataExtractionRules="@xml/data_extraction_rules" android:label="이어 CareRoute"
-        android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme"
+    <application android:allowBackup="false" android:fullBackupContent="false" android:dataExtractionRules="@xml/data_extraction_rules" android:label="케어롯 CareRoute"
+        android:icon="@drawable/care_launcher" android:theme="@style/AppTheme"
         android:supportsRtl="true" android:usesCleartextTraffic="false">
         <uses-library android:name="android.car" android:required="false" />
         <activity android:name=".MainActivity" android:exported="true"

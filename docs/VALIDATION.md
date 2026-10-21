@@ -1,4 +1,4 @@
-# 이어 CareRoute 검증 기록
+# 케어롯 CareRoute 검증 기록
 
 검증 환경: Pleos Connect Emulator2.1.0(API34), 공식 Virtual Console, Vehicle SDK2.3.2. 검증일2026년10월22일. 실차와 실제 승객을 사용하지 않았습니다.
 
@@ -8,7 +8,7 @@
 |---|---|
 | Java 네이티브 앱 debug·서명된 release APK 빌드·설치·실행 | 통과 |
 | debug·release 상태 로직 JUnit 테스트 각 9개 | 통과 |
-| Android lintRelease | 오류 0건, 경고 5건 |
+| Android lintRelease | 오류 0건, 경고 4건 |
 | apksigner release 서명 검증 | APK Signature Scheme v2 검증 통과 |
 | SDK로 P 기어와 오른쪽 뒷문 상태 읽기 | 통과 |
 | 공식 콘솔의 RR door 열림에 따른 하차 화면 전환 | 통과 |
@@ -17,11 +17,11 @@
 | 보호자 직접 확인 후에만 완료 버튼 활성화 | 통과 |
 | D 기어 상태에서 확인 입력 미표시 | 통과 |
 
-최종 서명된 release APK를 새로 설치한 뒤 공식 Virtual Console에서 P 정차 → RR door 열림 → 앞의 두 항목 직접 확인 → RR door 닫힘 → 보호자 인계 직접 확인 → 기록 완료 순서를 재검증했습니다. 문 닫힘만으로 완료할 수 없고, 보호자 확인 후에만 완료할 수 있음을 확인했습니다. D 기어에서 확인 입력이 표시되지 않는 것도 확인했습니다. 제출 영상은 이 release 버전의 실제 에뮬레이터 화면 녹화입니다.
+최종 서명된 release APK를 새로 설치한 뒤 공식 Virtual Console에서 P 정차 → RR door 열림 → 앞의 두 항목 직접 확인 → RR door 닫힘 → 보호자 인계 직접 확인 → 기록 완료 순서를 재검증했습니다. 문 닫힘만으로 완료할 수 없고, 보호자 확인 후에만 완료할 수 있음을 확인했습니다. D 기어에서 확인 입력이 표시되지 않는 것도 확인했습니다. 제출 앱은 1.2.1(versionCode 4)입니다. 제출 영상은 현재 release APK 화면과 별도로 제작한 3D 상황 연출을 편집한 36초 모션그래픽입니다. 전체 영상을 SDK 실행 화면 녹화로 제시하지 않습니다.
 
-APK SHA-256: `6fe939e676a1acfbccec9efdf2fa59ad240060a75062535ff0aff41a21d71a6b`
+APK SHA-256: `0ca809e79bc673bdfbe44169874888950d1e0ad39c80f48de88d4fdae5907c65`
 
-lint의 경고는 차량용 가로 화면 방향, 공식 에뮬레이터에 맞춘 SDK/API 버전, 더 최신 도구 버전 및 API 28–30용 별도 백업 설정 안내입니다. 앱에는 allowBackup=false를 적용했고 Android 12 이상용 dataExtractionRules에서도 백업과 기기 간 전송을 제외합니다. 오류는 없습니다. 출시 전에는 최신 Pleos 배포 정책과 차종별 화면 정책을 다시 검증해야 합니다.
+lint의 경고는 차량용 가로 화면 방향, 공식 에뮬레이터에 맞춘 SDK/API 버전, 더 최신 도구 버전 안내입니다. 앱에는 allowBackup=false를 적용했고 Android 12 이상용 dataExtractionRules에서도 백업과 기기 간 전송을 제외합니다. 오류는 없습니다. 출시 전에는 최신 Pleos 배포 정책과 차종별 화면 정책을 다시 검증해야 합니다.
 
 ## 단위 테스트가 다루는 실패 조건
 

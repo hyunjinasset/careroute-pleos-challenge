@@ -1,14 +1,17 @@
-# 이어 CareRoute
+# 케어롯 CareRoute
 
-차량의 문이 닫혀도, 보호자 인계가 끝났다는 뜻은 아닙니다. 이어 CareRoute는 차량의 기어·문 상태와 운전자 직접 확인을 연결해 교통약자의 하차부터 보호자 인계까지 하나의 흐름으로 기록하는 Pleos Connect 앱입니다.
+차량의 문이 닫혀도, 보호자 인계가 끝났다는 뜻은 아닙니다. 케어롯 CareRoute는 차량의 기어·문 상태와 운전자 직접 확인을 연결해 교통약자의 하차부터 보호자 인계까지 하나의 흐름으로 기록하는 Pleos Connect 앱입니다.
 
-[실제 SDK 연동 시연 영상 (72초)](docs/media/CareRoute_demo.mp4)
+[케어롯 소개·시연 영상 (36초)](docs/media/CareRoute_케어롯_시연영상.mp4)
+
+영상은 직접 제작한 3D 상황 연출과 현재 APK의 실제 화면을 확대·편집한 모션그래픽입니다. 모든 장면이 에뮬레이터 화면 녹화라는 뜻은 아닙니다. 실제 SDK 연동 검증 절차는 아래 안내와 docs/VALIDATION.md를 따릅니다.
 
 ![문 닫힘 이후에도 보호자 인계를 기다리는 실제 release 화면](docs/media/handoff-pending.png)
 
 ## 제출 버전
 
-- Android 네이티브 Java 앱, release APK는 `apk/CareRoute_이어_release.apk`에 있습니다.
+- 제출 앱 버전: **1.2.1 (versionCode 4)**. 큰 글자·주황색 강조·직접 그린 로고와 확인 아이콘을 적용했습니다.
+- Android 네이티브 Java 앱, release APK는 `apk/CareRoute_케어롯_release.apk`에 있습니다.
 - Pleos Vehicle SDK **2.3.2**의 실제 조회·리스너 API를 사용합니다.
 - 읽기 권한 `CAR_DOORS`, `CAR_DRIVE`만 선언합니다. 차량 제어 API는 호출하지 않습니다.
 - 가상 승객 1명과 가상 목적지 1곳을 사용한 핵심 흐름 MVP입니다.
@@ -30,7 +33,7 @@
 공식 Pleos Connect Emulator **v2.1.0, API34** 환경에서 앱을 설치합니다.
 
 ```sh
-adb install -r apk/CareRoute_이어_release.apk
+adb install -r apk/CareRoute_케어롯_release.apk
 adb shell am start -n io.careroute.app/.MainActivity --es mode live --ez reset true
 adb forward tcp:8088 tcp:8088
 ```
